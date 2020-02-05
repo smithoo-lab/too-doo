@@ -4,6 +4,7 @@ import router from './router';
 import store from './stores';
 import i18n from './i18n';
 import filters from './filters';
+import api from './api';
 
 class TooDoo {
     async bootstrap() {
@@ -24,6 +25,8 @@ class TooDoo {
         Object.keys(filters).forEach((key) => {
             Vue.filter(key, filters[key]);
         });
+
+        Vue.prototype.$api = api;
 
         new Vue({
             router,

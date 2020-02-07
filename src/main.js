@@ -9,6 +9,7 @@ import api from './api';
 class TooDoo {
     async bootstrap() {
         await this.loadStaticResources();
+        this.registerGlobalComponents();
         this.initVue();
     }
 
@@ -16,6 +17,26 @@ class TooDoo {
         const style = import(/* webpackChunkName: "style" */ './assets/loaders/style-loader');
 
         return Promise.all([style]);
+    }
+
+    registerGlobalComponents() {
+        const requireComponent = require.context(
+            './views/components/common',
+            false,
+            /\.vue$/
+        );
+
+        requireComponent.keys().forEach(fileName => {
+            // Get component config
+            const componentConfig = requireComponent(fileName);
+            const componentName = fileName.replace('./', '').replace('.vue', '');
+
+            // Register component globally
+            Vue.component(
+                componentName,
+                componentConfig.default || componentConfig
+            );
+        });
     }
 
     initVue() {

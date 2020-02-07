@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <button>Login</button>
+    <div class="auth-button">
+        <button type="button">Login</button>
     </div>
 </template>
 
@@ -9,3 +9,12 @@ export default {
 
 };
 </script>
+
+<style scoped>
+.auth-button {
+    float: right;
+}
+.auth-button button {
+    border-radius: 3px;
+}
+</style>

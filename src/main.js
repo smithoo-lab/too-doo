@@ -29,12 +29,13 @@ class TooDoo {
         requireComponent.keys().forEach(fileName => {
             // Get component config
             const componentConfig = requireComponent(fileName);
-            const componentName = fileName.replace('./', '').replace('.vue', '');
+            const component = componentConfig.default || componentConfig;
+            const componentName = component.name || fileName.replace('./', '').replace('.vue', '');
 
             // Register component globally
             Vue.component(
                 componentName,
-                componentConfig.default || componentConfig
+                component
             );
         });
     }

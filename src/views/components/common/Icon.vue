@@ -28,3 +28,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+i {
+    vertical-align: middle;
+}
+</style>

@@ -26,8 +26,8 @@ export default {
             isOpen: false,
             projects: [
                 // TODO: Load data from server
-                { id: '1', name: 'project1', desc: 'dlfdks dkfsl dlsd sl dk ls dfdsfsdf' },
-                { id: '2', name: 'project2', desc: 'dlfdks dkfsl dlsd sl d d dljksl dk ls dfdsfsdf' },
+                { id: '1', name: 'project1', desc: 'dlfdks fdsf sdf sd fda sfjlkas l sdjklf ajsldf jl fsdl fk klsdfjl kdkfsl dlsd sl dk ls dfdsfsdf' },
+                { id: '2', name: 'project2', desc: 'dlfdks dkfsl dlsdsdfld d dljksl dk ls dfdsfsdf' },
             ],
         };
     },
@@ -94,6 +94,11 @@ export default {
 .dropdown li p {
     line-height: 16px;
     font-size: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .dropdown li:hover {
     background-color: #eeeeee;

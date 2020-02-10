@@ -11,6 +11,7 @@
     overflow: hidden;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #faffed;

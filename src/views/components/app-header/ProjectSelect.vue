@@ -1,18 +1,20 @@
 <template>
     <div class="project-select">
-        <div>
+        <div class="select-btn">
             <button type="button" @click="onClickButton">
                 <span>Select project...</span>
                 <Icon class="icon">arrow_drop_down</Icon>
             </button>
         </div>
-        <div class="dropdown" v-if="isOpen">
-            <a href="#">Action</a>
-            <div></div>
-            <a href="#">Another action</a>
-            <div></div>
-            <a href="#">Something else here</a>
-        </div>
+        <ul class="dropdown" v-if="isOpen">
+            <li v-for="project in projects" :key="project.id">
+                <strong>{{ project.name }}</strong>
+                <p>{{ project.desc }}</p>
+            </li>
+            <li class="add-project">
+                <Icon class="icon" size="16">add</Icon> Add project
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -20,7 +22,13 @@
 export default {
     data() {
         return {
+            // TODO: add open animation
             isOpen: false,
+            projects: [
+                // TODO: Load data from server
+                { id: '1', name: 'project1', desc: 'dlfdks dkfsl dlsd sl dk ls dfdsfsdf' },
+                { id: '2', name: 'project2', desc: 'dlfdks dkfsl dlsd sl d d dljksl dk ls dfdsfsdf' },
+            ],
         };
     },
     methods: {
@@ -35,23 +43,33 @@ export default {
 .project-select {
     float: left;
     margin-left: 30px;
-    vertical-align: middle;
-    width: 180px;
+    width: 200px;
+    height: 60px;
 }
-.project-select button {
+.project-select:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.select-btn {
+    margin-top: 15px;
+    height: 30px;
+}
+.select-btn button {
+    width: 100%;
+    height: 30px;
     border-radius: 3px;
     border: 1px solid #fff;
     padding: 0 15px;
-    width: 100%;
-    height: 30px;
     line-height: 30px;
     text-align: left;
+    box-sizing: border-box;
 }
-.project-select button:hover {
+.select-btn button:hover {
     background-color: #30a471;
     box-shadow: 2px 1px 2px #ccc;
 }
-.icon {
+.select-btn .icon {
     float: right;
     position: relative;
     top: 2px;
@@ -61,5 +79,30 @@ export default {
     width: 100%;
     background-color: #fff;
     border: 1px solid #aaa;
+    color: #888;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.dropdown li {
+    padding: 5px 10px;
+    border-top: 1px solid #eee;
+}
+.dropdown li strong {
+    font-weight: 600;
+    line-height: 20px;
+}
+.dropdown li p {
+    line-height: 16px;
+    font-size: 8px;
+}
+.dropdown li:hover {
+    background-color: #eeeeee;
+}
+.dropdown .add-project {
+    line-height: 30px;
+}
+.dropdown .add-project .icon {
+    position: relative;
+    top: -2px;
 }
 </style>

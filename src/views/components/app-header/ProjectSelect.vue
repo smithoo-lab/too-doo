@@ -67,7 +67,7 @@ export default {
 }
 .select-btn button:hover {
     background-color: #30a471;
-    box-shadow: 2px 1px 2px #ccc;
+    box-shadow: 1px 1px 1px #ccc;
 }
 .select-btn .icon {
     float: right;

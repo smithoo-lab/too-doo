@@ -2,7 +2,7 @@
     <div class="project-select">
         <div class="select-btn">
             <button type="button" @click="onClickButton">
-                <span>Select project...</span>
+                <span>Select project</span>
                 <Icon class="icon">arrow_drop_down</Icon>
             </button>
         </div>

@@ -21,6 +21,7 @@ export default {
 
 <style scoped>
 header {
+    position: relative;
     height: 60px;
     background-color: #41b883;
     box-shadow: 2px 0px 4px #aaa;
